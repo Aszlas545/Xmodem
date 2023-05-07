@@ -32,27 +32,24 @@ namespace Xmodem
         {
             this.PortSelectionBox = new System.Windows.Forms.ComboBox();
             this.PortInfo = new System.Windows.Forms.TextBox();
-            this.OutcomingText = new System.Windows.Forms.TextBox();
-            this.IncomingText = new System.Windows.Forms.TextBox();
-            this.IncomingInfo = new System.Windows.Forms.TextBox();
-            this.OutcomingInfo = new System.Windows.Forms.TextBox();
-            this.SavePathInfo = new System.Windows.Forms.TextBox();
-            this.PathToSaveBox = new System.Windows.Forms.TextBox();
             this.FileToSendButton = new System.Windows.Forms.Button();
             this.SendXmodemButton = new System.Windows.Forms.Button();
             this.RecieveXmodemButton = new System.Windows.Forms.Button();
+            this.CRCUsage = new System.Windows.Forms.CheckBox();
+            this.Comms = new System.Windows.Forms.TextBox();
+            this.ComsInfo = new System.Windows.Forms.TextBox();
+            this.FilePathButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // PortSelectionBox
             // 
             this.PortSelectionBox.AllowDrop = true;
+            this.PortSelectionBox.DataSource = new string[0];
             this.PortSelectionBox.FormattingEnabled = true;
             this.PortSelectionBox.Location = new System.Drawing.Point(55, 11);
             this.PortSelectionBox.Name = "PortSelectionBox";
             this.PortSelectionBox.Size = new System.Drawing.Size(121, 21);
             this.PortSelectionBox.TabIndex = 0;
-            this.PortSelectionBox.SelectedIndexChanged += new System.EventHandler(this.PortSelectionBox_SelectedIndexChanged);
-            this.PortSelectionBox.DataSource = SerialPort.GetPortNames();
             // 
             // PortInfo
             // 
@@ -63,62 +60,6 @@ namespace Xmodem
             this.PortInfo.Size = new System.Drawing.Size(36, 20);
             this.PortInfo.TabIndex = 1;
             this.PortInfo.Text = "Port:";
-            // 
-            // OutcomingText
-            // 
-            this.OutcomingText.Location = new System.Drawing.Point(13, 86);
-            this.OutcomingText.Multiline = true;
-            this.OutcomingText.Name = "OutcomingText";
-            this.OutcomingText.ReadOnly = true;
-            this.OutcomingText.Size = new System.Drawing.Size(341, 352);
-            this.OutcomingText.TabIndex = 2;
-            // 
-            // IncomingText
-            // 
-            this.IncomingText.Location = new System.Drawing.Point(447, 86);
-            this.IncomingText.Multiline = true;
-            this.IncomingText.Name = "IncomingText";
-            this.IncomingText.ReadOnly = true;
-            this.IncomingText.Size = new System.Drawing.Size(341, 352);
-            this.IncomingText.TabIndex = 3;
-            // 
-            // IncomingInfo
-            // 
-            this.IncomingInfo.BackColor = System.Drawing.Color.LightBlue;
-            this.IncomingInfo.Enabled = false;
-            this.IncomingInfo.Location = new System.Drawing.Point(13, 60);
-            this.IncomingInfo.Name = "IncomingInfo";
-            this.IncomingInfo.Size = new System.Drawing.Size(133, 20);
-            this.IncomingInfo.TabIndex = 4;
-            this.IncomingInfo.Text = "Komunikaty wychodzące:";
-            // 
-            // OutcomingInfo
-            // 
-            this.OutcomingInfo.BackColor = System.Drawing.Color.LightBlue;
-            this.OutcomingInfo.Enabled = false;
-            this.OutcomingInfo.Location = new System.Drawing.Point(447, 60);
-            this.OutcomingInfo.Name = "OutcomingInfo";
-            this.OutcomingInfo.Size = new System.Drawing.Size(133, 20);
-            this.OutcomingInfo.TabIndex = 5;
-            this.OutcomingInfo.Text = "Komunikaty przychodzące:";
-            // 
-            // SavePathInfo
-            // 
-            this.SavePathInfo.BackColor = System.Drawing.Color.LightBlue;
-            this.SavePathInfo.Enabled = false;
-            this.SavePathInfo.Location = new System.Drawing.Point(447, 11);
-            this.SavePathInfo.Name = "SavePathInfo";
-            this.SavePathInfo.Size = new System.Drawing.Size(96, 20);
-            this.SavePathInfo.TabIndex = 6;
-            this.SavePathInfo.Text = "Scieżka do zapisu:";
-            // 
-            // PathToSaveBox
-            // 
-            this.PathToSaveBox.Location = new System.Drawing.Point(550, 11);
-            this.PathToSaveBox.Name = "PathToSaveBox";
-            this.PathToSaveBox.Size = new System.Drawing.Size(238, 20);
-            this.PathToSaveBox.TabIndex = 7;
-            this.PathToSaveBox.TextChanged += new System.EventHandler(this.PathToSaveBox_TextChanged);
             // 
             // FileToSendButton
             // 
@@ -134,9 +75,9 @@ namespace Xmodem
             // SendXmodemButton
             // 
             this.SendXmodemButton.BackColor = System.Drawing.Color.Lavender;
-            this.SendXmodemButton.Location = new System.Drawing.Point(152, 59);
+            this.SendXmodemButton.Location = new System.Drawing.Point(13, 38);
             this.SendXmodemButton.Name = "SendXmodemButton";
-            this.SendXmodemButton.Size = new System.Drawing.Size(202, 21);
+            this.SendXmodemButton.Size = new System.Drawing.Size(341, 21);
             this.SendXmodemButton.TabIndex = 9;
             this.SendXmodemButton.Text = "Wyślij plik przez Xmodem";
             this.SendXmodemButton.UseVisualStyleBackColor = false;
@@ -145,29 +86,68 @@ namespace Xmodem
             // RecieveXmodemButton
             // 
             this.RecieveXmodemButton.BackColor = System.Drawing.Color.Lavender;
-            this.RecieveXmodemButton.Location = new System.Drawing.Point(586, 59);
+            this.RecieveXmodemButton.Location = new System.Drawing.Point(447, 37);
             this.RecieveXmodemButton.Name = "RecieveXmodemButton";
-            this.RecieveXmodemButton.Size = new System.Drawing.Size(202, 21);
+            this.RecieveXmodemButton.Size = new System.Drawing.Size(341, 21);
             this.RecieveXmodemButton.TabIndex = 10;
             this.RecieveXmodemButton.Text = "Odbierz plik przez Xmodem";
             this.RecieveXmodemButton.UseVisualStyleBackColor = false;
             this.RecieveXmodemButton.Click += new System.EventHandler(this.RecieveXmodemButton_Click);
+            // 
+            // CRCUsage
+            // 
+            this.CRCUsage.AutoSize = true;
+            this.CRCUsage.BackColor = System.Drawing.Color.LightBlue;
+            this.CRCUsage.Location = new System.Drawing.Point(360, 10);
+            this.CRCUsage.Name = "CRCUsage";
+            this.CRCUsage.Size = new System.Drawing.Size(81, 17);
+            this.CRCUsage.TabIndex = 11;
+            this.CRCUsage.Text = "użycie CRC";
+            this.CRCUsage.UseVisualStyleBackColor = false;
+            this.CRCUsage.CheckedChanged += new System.EventHandler(this.CRCUsage_CheckedChanged);
+            // 
+            // Comms
+            // 
+            this.Comms.Enabled = false;
+            this.Comms.Location = new System.Drawing.Point(126, 69);
+            this.Comms.Name = "Comms";
+            this.Comms.Size = new System.Drawing.Size(661, 20);
+            this.Comms.TabIndex = 12;
+            // 
+            // ComsInfo
+            // 
+            this.ComsInfo.BackColor = System.Drawing.Color.LightBlue;
+            this.ComsInfo.Enabled = false;
+            this.ComsInfo.Location = new System.Drawing.Point(12, 69);
+            this.ComsInfo.Name = "ComsInfo";
+            this.ComsInfo.Size = new System.Drawing.Size(108, 20);
+            this.ComsInfo.TabIndex = 13;
+            this.ComsInfo.Text = "Komunikat Zwrotny:";
+            // 
+            // FilePathButton
+            // 
+            this.FilePathButton.BackColor = System.Drawing.Color.Lavender;
+            this.FilePathButton.Location = new System.Drawing.Point(447, 10);
+            this.FilePathButton.Name = "FilePathButton";
+            this.FilePathButton.Size = new System.Drawing.Size(340, 21);
+            this.FilePathButton.TabIndex = 14;
+            this.FilePathButton.Text = "Wybierz plik do którego zostanie zapisana zawartość";
+            this.FilePathButton.UseVisualStyleBackColor = false;
+            this.FilePathButton.Click += new System.EventHandler(this.PathToSaveBox_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.DarkSlateBlue;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(800, 97);
+            this.Controls.Add(this.FilePathButton);
+            this.Controls.Add(this.ComsInfo);
+            this.Controls.Add(this.Comms);
+            this.Controls.Add(this.CRCUsage);
             this.Controls.Add(this.RecieveXmodemButton);
             this.Controls.Add(this.SendXmodemButton);
             this.Controls.Add(this.FileToSendButton);
-            this.Controls.Add(this.PathToSaveBox);
-            this.Controls.Add(this.SavePathInfo);
-            this.Controls.Add(this.OutcomingInfo);
-            this.Controls.Add(this.IncomingInfo);
-            this.Controls.Add(this.IncomingText);
-            this.Controls.Add(this.OutcomingText);
             this.Controls.Add(this.PortInfo);
             this.Controls.Add(this.PortSelectionBox);
             this.Name = "Form1";
@@ -181,15 +161,13 @@ namespace Xmodem
 
         private System.Windows.Forms.ComboBox PortSelectionBox;
         private System.Windows.Forms.TextBox PortInfo;
-        private System.Windows.Forms.TextBox OutcomingText;
-        private System.Windows.Forms.TextBox IncomingText;
-        private System.Windows.Forms.TextBox IncomingInfo;
-        private System.Windows.Forms.TextBox OutcomingInfo;
-        private System.Windows.Forms.TextBox SavePathInfo;
-        private System.Windows.Forms.TextBox PathToSaveBox;
         private System.Windows.Forms.Button FileToSendButton;
         private System.Windows.Forms.Button SendXmodemButton;
         private System.Windows.Forms.Button RecieveXmodemButton;
+        private System.Windows.Forms.CheckBox CRCUsage;
+        private System.Windows.Forms.TextBox Comms;
+        private System.Windows.Forms.TextBox ComsInfo;
+        private System.Windows.Forms.Button FilePathButton;
     }
 }
 

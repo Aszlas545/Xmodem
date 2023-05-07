@@ -49,8 +49,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="PortExtension.cs" />
     <Compile Include="Reciever.cs" />
-    <Compile Include="Sneder.cs" />
+    <Compile Include="Sender.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

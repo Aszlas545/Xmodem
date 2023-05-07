@@ -1,0 +1,11 @@
+E:\Uczelnia\Telekomunikacja\zad2\Xmodem\bin\Debug\Xmodem.exe.config
+E:\Uczelnia\Telekomunikacja\zad2\Xmodem\bin\Debug\Xmodem.exe
+E:\Uczelnia\Telekomunikacja\zad2\Xmodem\bin\Debug\Xmodem.pdb
+E:\Uczelnia\Telekomunikacja\zad2\Xmodem\obj\Debug\Xmodem.csproj.AssemblyReference.cache
+E:\Uczelnia\Telekomunikacja\zad2\Xmodem\obj\Debug\Xmodem.csproj.SuggestedBindingRedirects.cache
+E:\Uczelnia\Telekomunikacja\zad2\Xmodem\obj\Debug\Xmodem.Form1.resources
+E:\Uczelnia\Telekomunikacja\zad2\Xmodem\obj\Debug\Xmodem.Properties.Resources.resources
+E:\Uczelnia\Telekomunikacja\zad2\Xmodem\obj\Debug\Xmodem.csproj.GenerateResource.cache
+E:\Uczelnia\Telekomunikacja\zad2\Xmodem\obj\Debug\Xmodem.csproj.CoreCompileInputs.cache
+E:\Uczelnia\Telekomunikacja\zad2\Xmodem\obj\Debug\Xmodem.exe
+E:\Uczelnia\Telekomunikacja\zad2\Xmodem\obj\Debug\Xmodem.pdb
